@@ -13,7 +13,7 @@ import java.util.Map;
 @Component
 public class AppCache {
 
-    public enum keys{
+    public enum keys {
         WEATHER_API;
     }
 
@@ -23,7 +23,7 @@ public class AppCache {
     public Map<String, String> appCache;
 
     @PostConstruct
-    public void init(){
+    public void init() {
         appCache = new HashMap<>();
         List<ConfigJournalAppEntity> all = configJournalAppRepository.findAll();
         for (ConfigJournalAppEntity configJournalAppEntity : all) {

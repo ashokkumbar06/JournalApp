@@ -76,7 +76,7 @@ public class JournalEntryController {
         boolean removed = journalEntryService.deleteById(myId, username);
         if (removed) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        } else{
+        } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }

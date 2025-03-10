@@ -1,6 +1,5 @@
 package net.engineeringdigest.journalApp.controller;
 
-;
 import lombok.extern.slf4j.Slf4j;
 import net.engineeringdigest.journalApp.entity.User;
 import net.engineeringdigest.journalApp.repository.UserRepository;
@@ -9,8 +8,6 @@ import net.engineeringdigest.journalApp.utilis.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.util.LinkedMultiValueMap;
@@ -70,9 +67,9 @@ public class GoogleAuthController {
                 Map<String, Object> userInfo = userInfoResponse.getBody();
                 String email = (String) userInfo.get("email");
                 UserDetails userDetails = null;
-                try{
+                try {
                     userDetails = userDetailsService.loadUserByUsername(email);
-                }catch (Exception e){
+                } catch (Exception e) {
                     User user = new User();
                     user.setEmail(email);
                     user.setUserName(email);

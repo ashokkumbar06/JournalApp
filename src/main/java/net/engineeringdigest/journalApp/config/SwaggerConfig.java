@@ -1,6 +1,5 @@
 package net.engineeringdigest.journalApp.config;
 
-import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;
@@ -12,17 +11,16 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import java.util.Arrays;
-import java.util.List;
 
 @Configuration
 public class SwaggerConfig {
 
     @Bean
-    public OpenAPI myCustomConfig(){
+    public OpenAPI myCustomConfig() {
         return new OpenAPI()
                 .info(
-                new Info().title("Journal App APIs")
-                        .description("By Vipul")
+                        new Info().title("Journal App APIs")
+                                .description("By Vipul")
                 )
                 .servers(Arrays.asList(new Server().url("http://localhost:8081").description("local"),
                         new Server().url("http://localhost:8082").description("live")))
