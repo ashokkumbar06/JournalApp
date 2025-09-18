@@ -13,14 +13,9 @@ import java.util.Map;
 @Component
 public class AppCache {
 
-    public enum keys {
-        WEATHER_API;
-    }
-
+    public Map<String, String> appCache;
     @Autowired
     private ConfigJournalAppRepository configJournalAppRepository;
-
-    public Map<String, String> appCache;
 
     @PostConstruct
     public void init() {
@@ -29,6 +24,10 @@ public class AppCache {
         for (ConfigJournalAppEntity configJournalAppEntity : all) {
             appCache.put(configJournalAppEntity.getKey(), configJournalAppEntity.getValue());
         }
+    }
+
+    public enum keys {
+        WEATHER_API;
     }
 
 }

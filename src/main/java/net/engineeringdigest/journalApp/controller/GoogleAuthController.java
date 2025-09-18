@@ -18,25 +18,24 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Map;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/auth/google")
 @Slf4j
 public class GoogleAuthController {
 
-    @Value("${spring.security.oauth2.client.registration.google.client-id}")
-    private String clientId;
-
-    @Value("${spring.security.oauth2.client.registration.google.client-secret}")
-    private String clientSecret;
-
-    @Autowired
-    private RestTemplate restTemplate;
-
     @Autowired
     UserDetailsServiceImpl userDetailsService;
-
+    @Value("${spring.security.oauth2.client.registration.google.client-id}")
+    private String clientId;
+    @Value("${spring.security.oauth2.client.registration.google.client-secret}")
+    private String clientSecret;
+    @Autowired
+    private RestTemplate restTemplate;
     @Autowired
     private PasswordEncoder passwordEncoder;
 
